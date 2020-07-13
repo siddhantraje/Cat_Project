@@ -1,0 +1,28 @@
+<!-- Nav bar is made responsive. So if will show the navigable items side by side for desktop previews
+and will provide a button to collapse the navigable items like dropdown -->
+<nav class="navbar navbar-expand-lg navbar-light bg-info" style="position: sticky;top: 0;left: 0;z-index: 100;">
+  <a class="navbar-brand" [routerLink]="['/dashboard']"><img src="https://api.thecatapi.com/favicon.ico"
+      style="width: auto;height: 5vh;" alt="The Cat Api Logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="['/dashboard']">Dashboard<i class="fa fa-tachometer"
+            aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Images by Categories</a>
+        <div class="dropdown-menu">
+          <!-- To display each category of cat in the dropdown -->
+          <a class="dropdown-item" *ngFor="let category of categories" [routerLink]="['/images/',category.id]"
+            routerLinkActive="active">{{category.name | titlecase}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>

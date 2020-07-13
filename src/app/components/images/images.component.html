@@ -1,0 +1,39 @@
+<div style="min-height: 80vh;">
+    <!-- Div to show if Cats by category are available -->
+    <div class="row" *ngIf="catsByCategory">
+        <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2" *ngFor="let cat of catsByCategory">
+            <img id="categoryCat" src={{cat.url}} alt="Cat Image" class="card-img-top">
+        </div>
+        <!-- Div to show more images -->
+        <div class="d-flex align-items-center" *ngIf="!showMore && catsByCategory.length>0">
+            <button class="btn btn-info text-center" style="position: relative; left: 5vw;"
+                (click)="showMoreImages()">Show More</button>
+        </div>
+    </div>
+
+    <!-- Div to show loading state of the cats by categories -->
+    <div class="row" *ngIf="!catsByCategory && !errCatsByCategory">
+        <div class="col-sm-3 col-md-3 col-lg-2 col-xl-2">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div to show the error fetching in Cats by categories -->
+    <div *ngIf="errCatsByCategory">
+        <p>{{errCatsByCategory}}</p>
+        <h3>Error occured while fetching data</h3>
+        <ul>
+            <li>Please check your internet connection and proxy settings and try again</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <!-- To place a button on the bottom right corner to stop the loading of the images
+    which are being fetched from the API -->
+        <div class="offset-lg-11 col-lg-1" *ngIf="showMore" (click)="stopLoadingMoreImages()">
+            <button class="btn btn-warning stickyButton">Stop loading images</button>
+        </div>
+    </div>
+</div>

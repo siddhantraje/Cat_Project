@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+#cardImage{
+    width: auto;
+    height: 30vh;
+}
+
+.title{
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+button{
+    height: inherit;
+    width: inherit;
+}
+
+#showOnScroll{
+    opacity: 0;
+}
+
+@media (min-width: 901px){
+    #categoriesTextH1{
+        font-family: 'Anton', sans-serif;
+        font-size: 10vh;
+        position: relative;
+        top: 20vh;
+    }
+    
+    #categoriesTextP{
+        opacity: 0;
+        font-family: 'Anton', sans-serif;
+        font-size: 3vh;
+        position: relative;
+        top: 20vh;
+    }
+
+    #cardImage{
+        filter: grayscale(100%);
+        transition: 0.3s;
+    }
+    
+    #cardImage:hover{
+        filter: grayscale(0%);
+    }
+}
+
+
+@media (max-width: 900px){
+    #categoriesTextH1{
+        font-family: 'Anton', sans-serif;
+        font-size: 10vh;
+    }
+    
+    #categoriesTextP{
+        opacity: 0;
+        font-family: 'Anton', sans-serif;
+        font-size: 3vh;
+    }
+
+    #cardImage{
+        filter: grayscale(0%);
+    }
+}
+
+
+

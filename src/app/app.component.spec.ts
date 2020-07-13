@@ -1,6 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CatService } from './services/cat.service';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,8 +13,13 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        FooterComponent
       ],
+      providers: [
+        {provide: CatService}
+      ]
     }).compileComponents();
   }));
 
@@ -20,16 +29,15 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'catProject'`, () => {
+  it('should render header component', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('catProject');
+    const header = fixture.debugElement.query(By.css('app-header')).nativeElement;
+    expect(header).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render footer component', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('catProject app is running!');
+    const footer = fixture.debugElement.query(By.css('app-footer')).nativeElement;
+    expect(footer).toBeTruthy();
   });
 });

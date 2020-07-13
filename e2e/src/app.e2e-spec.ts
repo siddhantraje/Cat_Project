@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('catProject app is running!');
+  it('should display message', () => {
+    page.navigateTo('/dashboard');
+    expect(window.location.pathname).toContain('dashboard');
   });
 
   afterEach(async () => {

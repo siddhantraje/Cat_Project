@@ -1,0 +1,18 @@
+img#categoryCat{
+    padding: 20px;
+    min-width: 200px;
+    height: 40vh;
+    transition: 0.2s;
+}
+
+img#categoryCat:hover{
+    padding: 0px;
+    z-index: 1;
+}
+
+.stickyButton{
+    z-index: 3;
+    position: fixed;
+    bottom: 10vh;
+    right: 10px;
+}

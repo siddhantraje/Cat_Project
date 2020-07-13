@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@media (min-width: 901px){
+
+    img#randomCat{
+        width: auto;
+        height: 60vh;
+    }
+
+    #randomCatImageDiv{
+        z-index: 1;
+    animation-name: left-slider;
+    animation-duration: 2s;
+    }
+    
+    @keyframes left-slider{
+        from {
+            transform: translateX(10vw);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    
+    #randomCatTextH1{
+        font-family: 'Anton', sans-serif;
+        font-size: 10vh;
+        position: relative;
+        top: 20vh;
+        animation-name: right-slider;
+        animation-duration: 2s;
+        }
+    
+        
+        @keyframes right-slider{
+            from {
+                opacity: 0;
+                transform: translateX(-10vw);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0vw);
+            }
+        }
+
+        #randomCatTextP{
+            opacity: 0;
+            font-family: 'Anton', sans-serif;
+            font-size: 3vh;
+            position: relative;
+            top: 20vh;
+            animation-name: down-slider;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-fill-mode: forwards;
+            }
+        
+            
+            @keyframes down-slider {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-5vh);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0vh);
+                }
+            }
+
+}
+
+@media (max-width: 900px){
+
+    #randomCatTextH1{
+        font-family: 'Anton', sans-serif;
+        position: relative;
+        font-size: 10vh;
+        }
+
+    #randomCatTextP{
+        font-family: 'Anton', sans-serif;
+        position: relative;
+        font-size: 3vh;
+        }
+}
+

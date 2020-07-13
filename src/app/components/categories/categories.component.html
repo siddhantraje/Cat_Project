@@ -1,0 +1,58 @@
+<!-- ********************************************************************************************************************************* -->
+<!-- **********************************Start of Categories Component Template********************************************************* -->
+<!-- ********************************************************************************************************************************* -->
+<div class="row" style="min-height: 70vh;">
+    <div class="col-lg-6">
+        <h1 id="categoriesTextH1" class="text-info text-center">Categories</h1>
+        <p id="categoriesTextP" class="text-center">Click to view more
+        <span class="d-none d-lg-block"> or Hover to fill colors</span>
+        </p>
+        <p id="categoriesTextP" class="text-center"></p>
+    </div>
+    <div class="col-lg-6">
+        <div id="showOnScroll">
+            <!-- If categories are Available, show the below div -->
+            <div class="title text-center text-info">Select Any card to get more cats of the category
+                <span class="d-none d-lg-block">, OR hover to <b>FILL COLORS</b> in the images</span>
+            </div>
+            <div class="row" *ngIf="categories.length">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngFor="let category of categories;let i = index;">
+                    <button [routerLink]="['/images',catOfEachCategory[i].categories[0].id]"
+                        *ngIf="catOfEachCategory.length==categories.length">
+                        <div class="card">
+                            <img id="cardImage" class="card-img-top" src="{{catOfEachCategory[i].url}}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <div class="card-title">{{catOfEachCategory[i].categories[0].name | titlecase}}</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <!-- **************************************************************************************************** -->
+
+            <!-- Div to show Loading state of the categories -->
+            <div class="list-group" *ngIf="!categories && !errCategories">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <!-- **************************************************************************************************** -->
+
+            <!-- Div to show Error in Loading the categories -->
+            <div class="list-group" *ngIf="(errCategories || errCatOfEachCategory) && categories">
+                <p>{{errCatOfEachCategory}}</p>
+                <h3>Error occured while fetching data</h3>
+                <ul>
+                    <li>Please check your internet connection and proxy settings and try again</li>
+                </ul>
+                <button class="btn btn-info offset-lg-10 col-lg-2" (click)="fetchCatOfEachCategory(categories)">Retry</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- **************************************************************************************************** -->
+
+<!-- ********************************************************************************************************************************* -->
+<!-- **********************************End of Categories Component Template********************************************************* -->
+<!-- ********************************************************************************************************************************* -->
